@@ -1,13 +1,18 @@
+// cursive (pattaya) font
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+// robotto font
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 @import 'variables';
 @import 'navbar';
-@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap');
 
 html{
     font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header{
-    margin-top: 100px;
+    margin-top: 60px;
     font-size: 1.4rem;
     height: 70vh;
     position: relative;
@@ -30,11 +35,11 @@ html{
 
     .header-text{
         background: #ddd;
-        max-width: 500px;
+        width: 100%;
         padding: 20px;
         transform: translateY(20px);
         h3{
-            font-family: 'Sansita Swashed', cursive;
+            font-family: 'Pattaya', sans-serif;
             font-size: 3.2rem;
         }
     }
@@ -47,11 +52,13 @@ html{
         background: $blue;
         color: white;
         margin-top: 12px;
+        cursor: pointer;
     }
 }
 @media(min-width: 786px){
 .header{
     height: 80vh;
+    margin-top: 80px;
     background: #ddd;
     .header-block{
         background: $blue;
@@ -72,6 +79,8 @@ html{
     }
 
     .header-text{
+        max-width: 500px;
+        background-color: none;
         text-align: left;
         margin-left: 55%;
         transform: translateY(40vh);

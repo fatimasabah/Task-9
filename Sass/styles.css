@@ -1,15 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 nav {
   -webkit-transition: z-index .5s;
   transition: z-index .5s;
-  z-index: 0;
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 55%;
+  width: 100%;
+  height: 60px;
+  background: #eee;
+  -webkit-box-shadow: 0px 1px 4px #66666696;
+          box-shadow: 0px 1px 4px #66666696;
+}
+
+nav .nav-logo {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  font-family: 'Pattaya', sans-serif;
+  font-size: 3rem;
 }
 
 nav .nav-button {
@@ -44,14 +60,15 @@ nav .nav-button .bottomLine {
   bottom: -8px;
 }
 
-nav ul {
-  -webkit-transform: translateX(-110%);
-          transform: translateX(-110%);
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  background: #184718;
-  width: 200%;
-  height: 99vh;
+nav .nav-list {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  z-index: -2;
+  background: #005a8d;
+  width: 100%;
+  height: 100vh;
   list-style: none;
   margin-top: 0;
   padding: 0;
@@ -60,12 +77,13 @@ nav ul {
   transition: all ease .4s;
 }
 
-nav ul li {
-  margin-left: 0;
+nav .nav-list li {
+  display: block;
+  margin: 0 40%;
   position: relative;
 }
 
-nav ul li a {
+nav .nav-list li a {
   padding: 20px 12%;
   display: block;
   font-size: 2rem;
@@ -73,12 +91,15 @@ nav ul li a {
   text-decoration: none;
 }
 
-@media (max-width: 1024px) {
-  .reveal ul {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-    -webkit-box-shadow: 0px 2px 8px #184718;
-            box-shadow: 0px 2px 8px #184718;
+@media (max-width: 786px) {
+  .reveal {
+    z-index: 100;
+  }
+  .reveal .nav-list {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-box-shadow: 0px 2px 8px #005a8d;
+            box-shadow: 0px 2px 8px #005a8d;
   }
   .reveal .close .topLine {
     -webkit-transform: rotate(45deg);
@@ -99,23 +120,21 @@ nav ul li a {
   z-index: 100;
 }
 
-@media (orientation: landscape) {
-  nav ul {
-    padding-top: 40px;
-  }
-}
-
-@media (min-width: 1024px) {
+@media (min-width: 786px) {
   nav {
     height: 80px;
     z-index: 100;
   }
-  nav button {
+  nav .nav-logo {
+    top: 20px;
+    left: 20px;
+  }
+  nav .nav-button {
     display: none;
   }
-  nav ul {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+  nav .nav-list {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
     background: transparent;
     height: 100%;
     display: -webkit-box;
@@ -126,41 +145,43 @@ nav ul li a {
         -ms-flex-direction: row;
             flex-direction: row;
     padding-top: 5px;
-    padding-left: 160px;
   }
-  nav ul li {
+  nav .nav-list li {
     margin: 8px;
     height: 40px;
   }
-  nav ul li a {
+  nav .nav-list li a {
     font-size: 1.8rem;
     padding: 10px;
     color: #444;
     border-radius: 100px;
   }
-  nav ul li a:hover {
+  nav .nav-list li a:hover {
     color: #000;
   }
-  nav ul li .navActive {
+  nav .nav-list li .nav-active {
     font-weight: bold;
     color: #000;
   }
-  nav ul li .navActive::after {
+  nav .nav-list li .nav-active::after {
     content: '';
     display: block;
     height: 3px;
     width: 100%;
+    -webkit-transform: scaleX(0.8);
+            transform: scaleX(0.8);
     border-radius: 10px;
-    background: red;
+    background: #005a8d;
   }
 }
 
 html {
   font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .header {
-  margin-top: 100px;
+  margin-top: 60px;
   font-size: 1.4rem;
   height: 70vh;
   position: relative;
@@ -187,14 +208,14 @@ html {
 
 .header .header-text {
   background: #ddd;
-  max-width: 500px;
+  width: 100%;
   padding: 20px;
   -webkit-transform: translateY(20px);
           transform: translateY(20px);
 }
 
 .header .header-text h3 {
-  font-family: 'Sansita Swashed', cursive;
+  font-family: 'Pattaya', sans-serif;
   font-size: 3.2rem;
 }
 
@@ -206,11 +227,13 @@ html {
   background: #005a8d;
   color: white;
   margin-top: 12px;
+  cursor: pointer;
 }
 
 @media (min-width: 786px) {
   .header {
     height: 80vh;
+    margin-top: 80px;
     background: #ddd;
   }
   .header .header-block {
@@ -234,6 +257,8 @@ html {
             filter: brightness(95%);
   }
   .header .header-text {
+    max-width: 500px;
+    background-color: none;
     text-align: left;
     margin-left: 55%;
     -webkit-transform: translateY(40vh);
